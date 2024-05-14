@@ -1,10 +1,38 @@
-version: "3"
-
 services:
   graphdb:
+    container_name: graphdb
     image: neo4j:5.19.0-community-bullseye
     environment:
       - NEO4J_AUTH=none
     ports:
       - 7474:7474
       - 7687:7687
+    networks:
+      - ethical-walls
+  
+  tracing:
+    container_name: tracing
+    image: jaegertracing/all-in-one:1.57
+    ports:
+      - 5775:5775/udp
+      - 5778:5778
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 9411:9411
+      - 14268:14268
+      - 16686:16686
+    networks:
+      - ethical-walls
+
+  metrics:
+    container_name: metrics
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - ethical-walls
+
+networks:
+  ethical-walls:
+    name: ethical-walls
+    driver: bridge
