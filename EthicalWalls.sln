@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.AppHost", "src\Aspir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.ServiceDefaults", "src\Aspire.ServiceDefaults\Aspire.ServiceDefaults.csproj", "{D47E3853-C3F1-4B3B-8EC2-9663A65CF158}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientManagement", "src\ClientManagement\ClientManagement.csproj", "{7DECDFCD-236E-4263-A022-73F4E1CAEE1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{D47E3853-C3F1-4B3B-8EC2-9663A65CF158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D47E3853-C3F1-4B3B-8EC2-9663A65CF158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D47E3853-C3F1-4B3B-8EC2-9663A65CF158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DECDFCD-236E-4263-A022-73F4E1CAEE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DECDFCD-236E-4263-A022-73F4E1CAEE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DECDFCD-236E-4263-A022-73F4E1CAEE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DECDFCD-236E-4263-A022-73F4E1CAEE1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
