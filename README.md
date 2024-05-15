@@ -4,7 +4,7 @@ Weekend build project around the creation, enforcement, and reporting of [ethica
 
 ## Purpose
 
-I want to understand more about how these can be implement, likely use cases and it's fun to play with new technology from time to time. Really looking to use it as vehicle to understand more about [Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview) and see how it affects the developer experience.
+I want to understand more about how these can be implemented, likely use cases and it's fun to play with new technology from time to time. Really looking to use it as vehicle to understand more about [Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview) and see how it affects the developer experience.
 
 ## Technology Stack
 
