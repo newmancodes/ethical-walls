@@ -20,3 +20,6 @@ jobs:
       
       - name: Build
         run: dotnet build ./EthicalWalls.sln --configuration Release --no-restore
+      
+      - name: Docker Compose Up
+        run: docker compose -f ./.developer/docker-compose.yml up -d
