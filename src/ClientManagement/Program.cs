@@ -1,8 +1,12 @@
 using ClientManagement.Components;
+using ClientManagement.Infrastructure.Postgres;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+
+builder.AddNpgsqlDbContext<ClientDbContext>("ClientsDB");
+builder.AddRabbitMQClient("messaging");
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -19,6 +23,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// app.MigrateDbContext<ClientDbContext>();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
