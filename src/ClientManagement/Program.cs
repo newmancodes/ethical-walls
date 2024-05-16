@@ -1,9 +1,23 @@
+using ClientManagement.Application;
 using ClientManagement.Components;
 using ClientManagement.Infrastructure.Postgres;
+using FluentValidation;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+
+builder.Services.AddValidatorsFromAssembly(ClientManagement.Application.AssemblyReference.Assembly);
+builder.Services.AddMediatR(c =>
+{
+    c.AddOpenBehavior(typeof(ValidationBehavior<,>));
+    c.RegisterServicesFromAssembly(ClientManagement.Application.AssemblyReference.Assembly);
+});
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.AddNpgsqlDbContext<ClientDbContext>("ClientsDB");
 builder.AddRabbitMQClient("messaging");
