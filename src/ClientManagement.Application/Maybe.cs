@@ -1,6 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace ClientManagement.Application;
 
 /// <remarks>https://github.com/ymassad/MaybeExamples/tree/master</remarks>
+[ExcludeFromCodeCoverage]
 public struct Maybe<T>
 {
     private readonly T value;
@@ -149,6 +152,7 @@ public struct Maybe<T>
     }
 }
 
+[ExcludeFromCodeCoverage]
 public static class Maybe
 {
     public class MaybeNone
