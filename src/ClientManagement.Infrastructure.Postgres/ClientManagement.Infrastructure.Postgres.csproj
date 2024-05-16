@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ClientManagement.Application\ClientManagement.Application.csproj" />
       <ProjectReference Include="..\ClientManagement.Domain\ClientManagement.Domain.csproj" />
     </ItemGroup>
 

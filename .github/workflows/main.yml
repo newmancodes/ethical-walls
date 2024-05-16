@@ -22,4 +22,38 @@ jobs:
       
       - name: Build
         run: dotnet build ./EthicalWalls.sln --configuration Release --no-restore
+      
+      - name: Test
+        id: test
+        run: dotnet test ./EthicalWalls.sln --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      
+      - name: Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        if: steps.test.conclusion == 'success'
+        with:
+          filename: coverage/**/coverage.cobertura.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: false
+          indicators: true
+          output: both
+          thresholds: '80 90'
+        
+      - name: ReportGenerator
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.2.4
+        if: ${{ steps.test.conclusion == 'success' && always() }}
+        with:
+          reports: 'coverage/**/coverage.cobertura.xml'
+          targetdir: 'coveragereport'
+          reporttypes: 'HtmlInline'
+          license: ${{ secrets.REPORTGENERATORLICENSE }}
+
+      - name: Archive Test Report
+        uses: actions/upload-artifact@v4
+        if: ${{ steps.test.conclusion == 'success' && always() }}
+        with:
+          name: code-coverage-report
+          path: ./coveragereport/
         

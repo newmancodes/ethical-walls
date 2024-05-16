@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Aspire.ServiceDefaults\Aspire.ServiceDefaults.csproj" />
       <ProjectReference Include="..\ClientManagement.Application\ClientManagement.Application.csproj" />
+      <ProjectReference Include="..\ClientManagement.Infrastructure.Postgres\ClientManagement.Infrastructure.Postgres.csproj" />
     </ItemGroup>
 
     <ItemGroup>
